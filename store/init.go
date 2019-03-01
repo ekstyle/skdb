@@ -23,5 +23,5 @@ func getDB() func() *mgo.Session {
 
 func init() {
 	db := getDB()
-	db()
+	defer db().Close()
 }
